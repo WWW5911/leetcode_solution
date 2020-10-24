@@ -27,6 +27,26 @@ class Solution {
         if(root.right != null ) dfs(root.right, k);
     }
 }*/
+/* iterate 
+class Solution {
+    public int kthSmallest(TreeNode root, int k){
+        int ans = 0, count = 0;
+        if(root == null) return 0;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode cur = root;
+        while(!stack.empty() || cur != null){ 
+            while(cur != null ){ 
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            if(++count == k) return cur.val;
+            cur = cur.right;
+        }
+        return 0;
+    }
+}
+*/
 //Divide and Conquer
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
